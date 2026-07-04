@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOD Dashboard | Complaint Portal</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.jpg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/bansal.webp') }}" alt="College logo">
+        <span>Complaint Portal</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li id="deptLabelNav"></li>
+          <li><a href="#" id="logoutLink">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dash-page">
+    <div class="container">
+
+      <div id="authGate" class="auth-gate">
+        <p>Checking your session&hellip;</p>
+      </div>
+
+      <div id="dashContent" class="hidden">
+        <div class="dash-head">
+          <div>
+            <h1>Welcome back<span id="deptName"></span></h1>
+            <p>Here's everything filed under your department right now.</p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-num" id="statTotal">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat-card pending">
+            <span class="stat-num" id="statPending">0</span>
+            <span class="stat-label">Pending</span>
+          </div>
+          <div class="stat-card progress">
+            <span class="stat-num" id="statProgress">0</span>
+            <span class="stat-label">In Progress</span>
+          </div>
+          <div class="stat-card resolved">
+            <span class="stat-num" id="statResolved">0</span>
+            <span class="stat-label">Resolved</span>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-tabs" id="filterTabs">
+            <button class="tab active" data-status="">All</button>
+            <button class="tab" data-status="Pending">Pending</button>
+            <button class="tab" data-status="In Progress">In Progress</button>
+            <button class="tab" data-status="Resolved">Resolved</button>
+          </div>
+        </div>
+
+        <div id="complaintList" class="complaint-list"></div>
+        <div id="emptyState" class="empty-state hidden">
+          <p>No complaints in this category yet.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="year"></span> College Complaint Management Portal
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

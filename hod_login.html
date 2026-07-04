@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOD Login | Complaint Portal</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.jpg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/bansal.webp') }}" alt="College logo">
+        <span>Complaint Portal</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('complaint_page') }}">Submit Complaint</a></li>
+          <li><a href="{{ url_for('track_page') }}">Track Status</a></li>
+          <li><a class="active" href="{{ url_for('hod_login_page') }}">HOD Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="login-page">
+    <div class="login-card reveal">
+      <div class="icon-circle">&#128737;&#65039;</div>
+      <h1>HOD Login</h1>
+      <p class="subtitle">Access the department dashboard</p>
+
+      <form id="hodLoginForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="hod.department@college.edu" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="department">Department *</label>
+          <select id="department" required>
+            <option value="">Select your department</option>
+            <option>Computer Science</option>
+            <option>Civil</option>
+            <option>Electronics</option>
+            <option>Mechanical</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" id="loginBtn">Sign In</button>
+      </form>
+
+      <p class="hint">Demo password for every seeded account: <code>hod@123</code></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="year"></span> College Complaint Management Portal
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

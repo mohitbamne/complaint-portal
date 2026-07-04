@@ -1,0 +1,84 @@
+.login-page {
+  min-height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  background: radial-gradient(circle at top, #eef0fb, var(--paper) 60%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--paper-card);
+  border-radius: var(--radius-lg);
+  padding: 44px 36px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+}
+
+.icon-circle {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--indigo-600), var(--navy-800));
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(45, 63, 214, 0.3);
+}
+
+.login-card h1 { font-size: 28px; margin-bottom: 6px; }
+.subtitle { color: var(--ink-soft); font-size: 15px; margin-bottom: 30px; }
+
+.login-card .form-group { text-align: left; margin-bottom: 18px; }
+
+.login-card label {
+  display: block;
+  font-weight: 600;
+  font-size: 13.5px;
+  margin-bottom: 7px;
+}
+
+.login-card input,
+.login-card select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  font-size: 14.5px;
+  background: #fbfbfd;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.login-card input:focus,
+.login-card select:focus {
+  outline: none;
+  border-color: var(--indigo-500);
+  box-shadow: 0 0 0 4px rgba(79, 95, 224, 0.12);
+  background: #fff;
+}
+
+.login-card input.invalid, .login-card select.invalid { border-color: var(--red-600); }
+
+#loginBtn { margin-top: 8px; position: relative; }
+#loginBtn.loading { color: transparent; }
+#loginBtn.loading::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  top: 50%; left: 50%;
+  margin: -9px 0 0 -9px;
+  border: 2.5px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.hint { margin-top: 20px; font-size: 12.5px; color: var(--ink-soft); }
+.hint code { background: #eef0fb; padding: 2px 6px; border-radius: 5px; }

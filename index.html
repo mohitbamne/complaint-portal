@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Complaint Management Portal</title>
+  <meta name="description" content="Submit and track student complaints. Reviewed by the Head of Department for fast resolution.">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.jpg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/bansal.webp') }}" alt="College logo">
+        <span>Complaint Portal</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a class="active" href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('complaint_page') }}">Submit Complaint</a></li>
+          <li><a href="{{ url_for('track_page') }}">Track Status</a></li>
+          <li><a href="{{ url_for('hod_login_page') }}">HOD Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Student Grievance Redressal</p>
+        <h1>Your voice reaches the right desk — every time.</h1>
+        <p class="lede">Submit academic, hostel, or administrative complaints in minutes. Your Head of Department reviews it directly, and you can track the status until it's resolved.</p>
+        <div class="hero-actions">
+          <a href="{{ url_for('complaint_page') }}" class="btn btn-primary">Submit a Complaint &#10230;</a>
+          <a href="{{ url_for('track_page') }}" class="btn btn-ghost">Track my complaint</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="container">
+        <div class="how-head reveal">
+          <p class="eyebrow eyebrow-dark">The process</p>
+          <h2>How it works</h2>
+          <p class="sub">A straightforward, three-step path from submission to resolution.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <div class="icon"><img src="{{ url_for('static', filename='images/1.gif') }}" alt="Icon showing a form being submitted"></div>
+            <h3>Submit</h3>
+            <p>Fill out the complaint form with your roll number, department, and a clear description of the issue.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">02</div>
+            <div class="icon"><img src="{{ url_for('static', filename='images/2.gif') }}" alt="Icon showing a document under review"></div>
+            <h3>Review</h3>
+            <p>Your Head of Department receives it instantly and reviews the case for appropriate action.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">03</div>
+            <div class="icon"><img src="{{ url_for('static', filename='images/3.gif') }}" alt="Icon showing a checkmark for resolution"></div>
+            <h3>Resolve</h3>
+            <p>Track the live status — Pending, In Progress, or Resolved — along with any remarks from your HOD.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-card reveal">
+        <h2>Ready to raise your concern?</h2>
+        <p>Don't let issues go unresolved. It takes less than two minutes to submit.</p>
+        <a href="{{ url_for('complaint_page') }}" class="btn btn-primary">Get started now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="year"></span> College Complaint Management Portal &middot; Built for students, by students.
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Complaint | Complaint Portal</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.jpg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/track.css') }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/bansal.webp') }}" alt="College logo">
+        <span>Complaint Portal</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('complaint_page') }}">Submit Complaint</a></li>
+          <li><a class="active" href="{{ url_for('track_page') }}">Track Status</a></li>
+          <li><a href="{{ url_for('hod_login_page') }}">HOD Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="track-page">
+    <div class="container track-layout">
+      <div class="track-head reveal">
+        <h1>Track your complaint</h1>
+        <p>Enter the roll number you used when submitting to see the current status.</p>
+      </div>
+
+      <form id="trackForm" class="track-form reveal">
+        <input type="text" id="rollInput" placeholder="Enter your roll number" required>
+        <button class="btn btn-primary" type="submit" id="trackBtn">Search</button>
+      </form>
+
+      <div id="results" class="track-results"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; <span id="year"></span> College Complaint Management Portal
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/track.js') }}"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
